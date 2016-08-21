@@ -470,8 +470,25 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		validateLayout();
 	}
 
+	private String getRadioButtonLabel(final int id) {
+		switch(id) {
+		case 1:
+			return "Single";
+		case 2:
+			return "Double";
+		case 3:
+			return "Unsure";
+		case 4:
+			return "Non-nucleated";
+		case 5:
+			return "Junk";
+		default:
+			return "Type " + id;
+		}
+	}
+	
 	private JRadioButton makeDynRadioButton(final int id) {
-		final JRadioButton jrButton = new JRadioButton("Type " + id);
+		final JRadioButton jrButton = new JRadioButton(getRadioButtonLabel(id));
 		jrButton.setActionCommand(TYPE_COMMAND_PREFIX + id);
 		jrButton.addActionListener(this);
 		dynRadioVector.add(jrButton);
