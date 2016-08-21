@@ -378,7 +378,7 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 
 		showAllCheck = new JCheckBox(SHOWALL);
 		showAllCheck.setToolTipText("When selected, all stack markers are shown");
-		showAllCheck.setSelected(false);
+		showAllCheck.setSelected(true);
 		showAllCheck.setEnabled(false);
 		showAllCheck.addItemListener(this);
 		gb.setConstraints(showAllCheck, gbc);
@@ -547,7 +547,8 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		}
 		delCheck.setEnabled(true);
 		numbersCheck.setEnabled(true);
-		showAllCheck.setSelected(false);
+		showAllCheck.setSelected(true);
+		ic.setShowAll(true);
 		if (counterImg.getStackSize() > 1) showAllCheck.setEnabled(true);
 		addButton.setEnabled(true);
 		removeButton.setEnabled(true);
