@@ -653,7 +653,7 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 			options();
 		}
 		else if (command.equals(RESULTS)) {
-			report();
+			reportTotals();
 		}
 		else if (command.equals(EXPORTMARKERS)) {
 			exportMarkers();
@@ -791,6 +791,27 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		IJ.write(results);
 	}
 
+	public void reportTotals() {
+		String labels = "";
+		// add the types according to the button vector!!!!
+		final ListIterator<JRadioButton> it = dynRadioVector.listIterator();
+		while (it.hasNext()) {
+			final JRadioButton button = it.next();
+			final String str = button.getText(); // System.out.println(str);
+			labels = labels.concat(str + "\t");
+		}
+		IJ.setColumnHeadings(labels);
+		
+		String results = "";
+		final ListIterator<CellCntrMarkerVector> mit = typeVector.listIterator();
+		while (mit.hasNext()) {
+			final CellCntrMarkerVector mv = mit.next();
+			final int count = mv.size();
+			results = results.concat(count + "\t");
+		}
+		IJ.write(results);
+	}
+	
 	public void loadMarkers() {
 		final String filePath =
 			getFilePath(new JFrame(), "Select Marker File", OPEN);
