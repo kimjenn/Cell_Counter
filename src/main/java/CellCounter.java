@@ -133,6 +133,7 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 	public CellCounter() {
 		super("Cell Counter");
 		setResizable(false);
+		setAlwaysOnTop(true);
 		typeVector = new Vector<CellCntrMarkerVector>();
 		txtFieldVector = new Vector<JTextField>();
 		dynRadioVector = new Vector<JRadioButton>();
