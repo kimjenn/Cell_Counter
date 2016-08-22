@@ -939,4 +939,13 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		return filename;
 	}
 	
+	public static void initializeImageMacro() {
+		if (instance == null) return;
+		instance.initializeImage();
+	}
+	
+	public static void shutItDown(){
+		if (instance == null || instance.ic == null) return;
+		instance.dispose();
+	}
 }
