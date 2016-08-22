@@ -932,4 +932,11 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		instance.exportMarkers(dir);
 	}
 	
+	public static String getFilename() {
+		if (instance == null || instance.ic == null) return "";
+		String filename = instance.img.getTitle();
+		filename = filename.substring(0, filename.lastIndexOf("."));
+		return filename;
+	}
+	
 }
