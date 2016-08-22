@@ -915,4 +915,9 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		instance.ic.setCurrentMarkerVector(instance.currentMarkerVector);
 	}
 
+	public static void reportTotalsMacro() {
+		if (instance == null || instance.ic == null) return;
+		instance.reportTotals();
+	}
+	
 }
