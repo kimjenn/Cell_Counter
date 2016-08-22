@@ -856,6 +856,13 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		wxml.writeXML(img.getTitle(), typeVector, typeVector.indexOf(currentMarkerVector));
 	}
 
+	public void exportMarkers(String filePath) {
+		String filename = img.getTitle();
+		filename = filename.substring(0, filename.lastIndexOf(".")) + "_CellCounter_KJ.xml";
+		final WriteXML wxml = new WriteXML(filePath + filename);
+		wxml.writeXML(img.getTitle(), typeVector, typeVector.indexOf(currentMarkerVector));
+	}
+	
 	public static final int SAVE = FileDialog.SAVE, OPEN = FileDialog.LOAD;
 
 	private String getFilePath(final JFrame parent, String dialogMessage,
@@ -918,6 +925,11 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 	public static void reportTotalsMacro() {
 		if (instance == null || instance.ic == null) return;
 		instance.reportTotals();
+	}
+	
+	public static void exportMarkersMacro(final String dir) {
+		if (instance == null || instance.ic == null || dir == null) return;
+		instance.exportMarkers(dir);
 	}
 	
 }
