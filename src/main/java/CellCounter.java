@@ -850,12 +850,10 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 	}
 
 	public void exportMarkers() {
-		String filePath =
-			getFilePath(new JFrame(), "Save Marker File (.xml)", SAVE);
+		String filePath = getFilePath(new JFrame(), "Save Marker File (.xml)", SAVE);
 		if (!filePath.endsWith(".xml")) filePath += ".xml";
 		final WriteXML wxml = new WriteXML(filePath);
-		wxml.writeXML(img.getTitle(), typeVector, typeVector
-			.indexOf(currentMarkerVector));
+		wxml.writeXML(img.getTitle(), typeVector, typeVector.indexOf(currentMarkerVector));
 	}
 
 	public static final int SAVE = FileDialog.SAVE, OPEN = FileDialog.LOAD;
@@ -879,8 +877,7 @@ public class CellCounter extends JFrame implements ActionListener, ItemListener
 		switch (dialogType) {
 			case (SAVE):
 				final String filename = img.getTitle();
-				fd.setFile("CellCounter_" +
-					filename.substring(0, filename.lastIndexOf(".") + 1) + "xml");
+				fd.setFile("CellCounter_" +	filename.substring(0, filename.lastIndexOf(".") + 1) + "xml");
 				break;
 		}
 		fd.setVisible(true);
